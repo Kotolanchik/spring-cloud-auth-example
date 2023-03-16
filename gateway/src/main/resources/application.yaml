@@ -8,6 +8,13 @@ spring:
           uri: http://localhost:8200
           predicates:
             - Path=/example
+        - id: auth-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=false
+            - RemoveRequestHeader=Cookie,Set-Cookie
 
 server:
   port: 8762

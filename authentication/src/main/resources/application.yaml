@@ -1,0 +1,25 @@
+server:
+  port: 9998
+
+spring:
+  application:
+    name: authentication-server
+  datasource:
+    url: jdbc:postgresql://localhost/authentication-cloud
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/discovery/
+
+token:
+  secret: 123@@#&amp;javadream.in#$%
+  expired: 5 * 60 * 60
